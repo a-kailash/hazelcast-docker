@@ -1,0 +1,57 @@
+---
+
+version: "3.8"
+
+services:
+    hc4-member1:
+        image: "hazelcast/hazelcast:4.0.1"
+        deploy:
+            replicas: 1
+            update_config:
+                delay: 10s
+            restart_policy:
+                condition: on-failure
+            endpoint_mode: dnsrr
+        volumes:
+            - ./resources:/hc_config
+        environment:
+            - JAVA_OPTS=-Dhazelcast.config=/hc_config/cluster.xml -Dhazelcast.diagnostics.enabled=true
+        networks:
+            - private_net
+
+    hc4-member2:
+        image: "hazelcast/hazelcast:4.0.1"
+        deploy:
+            replicas: 1
+            update_config:
+                delay: 10s
+            restart_policy:
+                condition: on-failure
+            endpoint_mode: dnsrr
+        volumes:
+            - ./resources:/hc_config
+        environment:
+            - JAVA_OPTS=-Dhazelcast.config=/hc_config/cluster.xml -Dhazelcast.diagnostics.enabled=true
+        networks:
+            - private_net
+
+    hc4-member3:
+        image: "hazelcast/hazelcast:4.0.1"
+        deploy:
+            replicas: 1
+            update_config:
+                delay: 10s
+            restart_policy:
+                condition: on-failure
+            endpoint_mode: dnsrr
+        volumes:
+            - ./resources:/hc_config
+        environment:
+            - JAVA_OPTS=-Dhazelcast.config=/hc_config/cluster.xml -Dhazelcast.diagnostics.enabled=true
+        networks:
+            - private_net
+
+networks:
+    private_net:
+        driver: overlay
+        internal: true
