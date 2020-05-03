@@ -1,4 +1,4 @@
-# hazelcast-docker
+# Hazelcast Cluster on Docker Swarm with Network Isolation
 
 
 I was interested in running Hazelcast OSS as a distributed In Memory Cache. Reading up on existing blogs and guidance on Hazelcast, I realised that Hazelcast OSS provides limited features for security in the Open Source version. Anyone with access to the Hazelcast cluster ports is free to read/write data on the cluster.
@@ -11,7 +11,7 @@ The idea is to deploy Hazelcast in Docker as a swarm service such that the clust
 
 
 
-## References
+## Dependencies
 
 * [Hazelcast IMDG Official Docker Images](https://hub.docker.com/r/hazelcast/hazelcast)
 * [Hazelcast Management Centre Official Docker Images](https://hub.docker.com/r/hazelcast/hazelcast-jet-management-center)
@@ -39,4 +39,11 @@ The idea is to deploy Hazelcast in Docker as a swarm service such that the clust
 [Hazelcast V3 Specific Instructions](./hazelcast-v3/hazelcastv3-deploy.md)
 
 
-The diagrams in this repo where drawn using the services of [Draw.io](https://www.draw.io/)
+## References
+
+1. The diagrams in this repo where drawn using the services of [Draw.io](https://www.draw.io/)
+2. Hazelcast config examples and options can be found here:
+    * https://github.com/hazelcast/hazelcast/tree/3.12.z/hazelcast/src/main/resources
+    * https://github.com/hazelcast/hazelcast/tree/master/hazelcast/src/main/resources
+3. [Hazelcast Official Docker Image repo](https://github.com/hazelcast/hazelcast-docker)
+4. [Hazelcast documenation](https://docs.hazelcast.org/docs/3.12.7/manual/html-single/index.html#hazelcast-topology)
