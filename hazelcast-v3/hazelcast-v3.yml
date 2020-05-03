@@ -1,0 +1,45 @@
+---
+
+version: "3.8"
+
+services:
+    hc-member1:
+        image: "hazelcast/hazelcast:3.11.7"
+        deploy:
+            replicas: 1
+            update_config:
+                delay: 10s
+            restart_policy:
+                condition: on-failure
+            endpoint_mode: dnsrr
+        networks:
+            - private_net
+
+    hc-member2:
+        image: "hazelcast/hazelcast:3.11.7"
+        deploy:
+            replicas: 1
+            update_config:
+                delay: 10s
+            restart_policy:
+                condition: on-failure
+            endpoint_mode: dnsrr
+        networks:
+            - private_net
+
+    hc-member3:
+        image: "hazelcast/hazelcast:3.11.7"
+        deploy:
+            replicas: 1
+            update_config:
+                delay: 10s
+            restart_policy:
+                condition: on-failure
+            endpoint_mode: dnsrr
+        networks:
+            - private_net
+
+networks:
+    private_net:
+        driver: overlay
+        internal: true
