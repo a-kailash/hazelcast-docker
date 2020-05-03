@@ -12,6 +12,10 @@ services:
             restart_policy:
                 condition: on-failure
             endpoint_mode: dnsrr
+        volumes:
+            - ./resources:/hc_config
+        environment:
+            - JAVA_OPTS=-Dhazelcast.config=/hc_config/cluster.xml -Dhazelcast.diagnostics.enabled=true
         networks:
             - private_net
 
@@ -24,6 +28,10 @@ services:
             restart_policy:
                 condition: on-failure
             endpoint_mode: dnsrr
+        volumes:
+            - ./resources:/hc_config
+        environment:
+            - JAVA_OPTS=-Dhazelcast.config=/hc_config/cluster.xml -Dhazelcast.diagnostics.enabled=true
         networks:
             - private_net
 
@@ -36,6 +44,10 @@ services:
             restart_policy:
                 condition: on-failure
             endpoint_mode: dnsrr
+        volumes:
+            - ./resources:/hc_config
+        environment:
+            - JAVA_OPTS=-Dhazelcast.config=/hc_config/cluster.xml -Dhazelcast.diagnostics.enabled=true
         networks:
             - private_net
 
